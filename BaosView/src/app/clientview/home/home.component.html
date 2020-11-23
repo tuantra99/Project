@@ -1,0 +1,65 @@
+<div class="p-4">
+  <div class="container" >
+    <div class="container-left">
+      <div class="title-left">
+        <div class="icon-title">
+          <a class="bolt">
+            <img src="../../../assets/png/icon button/flash_on-black-18dp/1x/baseline_flash_on_black_18dp.png" alt="" />
+            <a class="text-title">Tin</a>
+          </a>
+        </div>
+        <div class="text-new-left">
+          <div class="list-left-title" *ngFor="let bao of baos">
+            <a class="i-title" href="tinmoi/{{bao.idTinTuc}}" >
+              <div>{{bao.tenTinTuc}}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-center" >
+      <div class="list-fast" *ngFor="let bao of baos">
+        <a>
+          <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" class="center" alt="">
+        </a>
+        <div>
+        <b>{{bao.tenTinTuc}}</b>
+        <p>{{bao.ttTinTuc}}</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button [routerLink]="['/test1']" routerLinkActive="router-link-active" >upload</button>
+</div>
+
+<script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" w3-white", "");
+    }
+    x[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " w3-white";
+  }
+  </script>

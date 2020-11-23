@@ -1,0 +1,55 @@
+<header>
+  <!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 colorheader">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img class="icon" src="../../../assets/png/icon banner/logo-left.png" alt="" />
+      </a>
+      <ul class="navbar-nav flex-grow">
+      </ul>
+      <a class="nav-hiden">
+        <img src="../../../assets/png/icon banner/banner-right.png" alt="">
+      </a>
+    </div>
+    <a class="button-serect">
+      <img [routerLink]="['/account']" routerLinkActive="router-link-active"  src="../../../assets/png/icon button/power_settings_new-black-18dp/1x/baseline_power_settings_new_black_18dp.png" alt="">
+    </a>
+  </nav> -->
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img
+        class="icon"
+        src="../../../assets/png/icon banner/logo-left.png"
+        alt=""
+      />
+    </a>
+    <ul class="navbar-nav flex-grow"></ul>
+  </div>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="menu-bar">
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse text-bar drop"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <li class="nav-item menulist" *ngFor="let bao of dmchungs" >
+          <a
+            class="nav-link text-dark"
+             href="danhmuc/{{ bao.idDanhMuc }}" routerLinkActive="router-link-active" >{{ bao.tenDanhMuc }}</a
+          >
+        </li>
+      </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target=".navbar-collapse"
+      aria-label="Toggle navigation"
+      [attr.aria-expanded]="isExpanded"
+      (click)="toggle()"
+    >
+      <span class="navbar-toggler-icon button-drop"></span>
+    </button>
+  </div>
+  </nav>
+</header>

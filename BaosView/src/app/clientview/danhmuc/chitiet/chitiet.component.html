@@ -1,0 +1,47 @@
+<div class="font">
+  <div class="top-category">
+    <div class="category">
+      <div *ngFor="let bao of baos" class="one-data">
+        <p>{{ bao.tenDanhMuc }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="left">
+    <div class="con-left">
+      <div class="fd-text sm-3">
+        <div class="text-list">
+          <div class="container-list" *ngFor="let bao of baos" >
+            <a class="a-title" href="tinmoi/{{bao.idTinTuc}}">
+            <h4 class="title-container-list">{{ bao.tenTinTuc }}</h4>
+          </a>
+            <div class="text-float">
+              <b>
+                <p class="text-main">
+                  <a class="text">{{ bao.ndTinTuc }}</a>
+                </p>
+              </b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="container-right">
+      <div class="sm-4">
+        <div class="title-container-right" >
+          <div class="cat">
+            <div class="tbl-container-right" *ngFor="let bao of baos">
+              <p class="tecat">{{ bao.tenTinTuc }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <li class="menu-extra" *ngFor="let bao of baos">
+            <a>{{ bao.ndTinTuc }}</a>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

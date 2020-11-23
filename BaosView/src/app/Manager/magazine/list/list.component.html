@@ -1,0 +1,28 @@
+<h3 class="hview">Nội dung tổng quát</h3>
+<div class="preview">
+<a routerLink="/manager/danhmuc" class="btn btn-sm btn-success mb-2" >Danh mục</a>
+<a routerLink="/manager/tintuc" class="btn btn-sm btn-success mb-2" style="width: 85px;">Tin tức</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 5%">Tên danh mục</th>
+            <th style="width: 20%">Tên tin tức</th>
+            <th style="width: 20%">Tiêu đề tin tức</th>
+            <th style="width: 50%">Nôi dung tin tức</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bao of baos">
+            <td>{{bao.tenDanhMuc}}</td>
+            <td>{{bao.tenTinTuc}}</td>
+            <td>{{bao.ttTinTuc}}</td>
+            <td>{{bao.ndTinTuc}}</td>
+        </tr>
+        <tr *ngIf="!baos">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

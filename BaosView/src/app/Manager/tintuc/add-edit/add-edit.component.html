@@ -1,0 +1,62 @@
+<h1 *ngIf="isAddMode">Thêm tin tức</h1>
+<h1 *ngIf="!isAddMode">Sửa tin tức</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="tenTinTuc">Tên tin tức</label>
+      <input
+        type="text"
+        formControlName="tenTinTuc"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.tenTinTuc.errors }"
+      />
+      <div *ngIf="submitted && f.tenTinTuc.errors" class="invalid-feedback">
+        <div *ngIf="f.tenTinTuc.errors.required">Tên tin tức đã tồn tại</div>
+      </div>
+    </div>
+    <!-- <div class="form-group col">
+      <label for="idDanhMuc">Mã danh mục</label>
+      <input type="text" formControlName="idDanhMuc" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.idDanhMuc.errors }" />
+    </div> -->
+    <div class="form-group col">
+      <label for="idDanhMuc">Mã danh mục</label>
+      <select formControlName="idDanhMuc" class="form-control">
+          <option *ngFor="let danhmuc of dmChung" value="{{danhmuc.idDanhMuc}}">{{danhmuc.tenDanhMuc}}</option>
+      </select>
+      <div *ngIf="f.idDanhMuc.touched && f.idDanhMuc.invalid" class="alert alert-danger">
+          <div *ngIf="f.idDanhMuc.errors.required">id is required.</div>
+      </div>
+  </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="ndTinTuc">Nội dung tin tức</label>
+      <input
+        type="text"
+        formControlName="ndTinTuc"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.ndTinTuc.errors }"
+      />
+    </div>
+    <div class="form-group col">
+      <label for="ttTinTuc">Tóm tắt tin tức</label>
+      <input
+        type="text"
+        formControlName="ttTinTuc"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.ttTinTuc.errors }"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm mr-1"
+      ></span>
+      Save
+    </button>
+    <a routerLink="/tintuc" class="btn btn-link">Cancel</a>
+  </div>
+</form>

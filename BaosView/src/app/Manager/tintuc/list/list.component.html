@@ -1,0 +1,33 @@
+<h1>Tin tức</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Thêm tin tức</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 10%">Tên tin tức</th>
+            <th style="width: 60%">Nội dung tin tức</th>
+            <th style="width: 20%">Tiêu đề tin tức</th>
+            <th style="width: 20%">Mã danh mục</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tintuc of ttChung">
+            <td>{{tintuc.tenTinTuc}}</td>
+            <td>{{tintuc.ndTinTuc}}</td>
+            <td>{{tintuc.ttTinTuc}}</td>
+            <td>{{tintuc.idDanhMuc}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="ttchung/{{tintuc.idTinTuc}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteTintuc(tintuc.idTinTuc)" class="btn btn-sm btn-danger btn-delete-danhmuc" [disabled]="tintuc.isDeleting">
+                    <span *ngIf="tintuc.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!tintuc.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!ttChung">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

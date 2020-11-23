@@ -1,0 +1,29 @@
+<h1>Danh mục</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Thêm danh mục</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Mã Danh mục</th>
+            <th style="width: 30%">Tên Danh mục</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let danhmuc of dmChung">
+            <td>{{danhmuc.idDanhMuc}}</td>
+            <td>{{danhmuc.tenDanhMuc}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{danhmuc.idDanhMuc}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteDanhmuc(danhmuc.idDanhMuc)" class="btn btn-sm btn-danger btn-delete-danhmuc" [disabled]="danhmuc.isDeleting">
+                    <span *ngIf="danhmuc.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!danhmuc.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!dmChung">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

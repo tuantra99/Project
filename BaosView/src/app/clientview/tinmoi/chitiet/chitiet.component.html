@@ -1,0 +1,20 @@
+<div class="font" *ngFor="let bao of baos">
+  <div class="top-category">
+    <div class="category">
+      <p>{{bao.tenDanhMuc}}</p>
+    </div>
+  </div>
+  <div class="left" *ngFor="let bao of baos">
+     <div class="con-left">
+      <div class="fd-text sm-3">
+        <div class="text-list" >
+            <div class="container">
+              <h2 class="title">{{bao.tenTinTuc}}</h2>
+              <b><h4 class="title-bottom">{{bao.ttTinTuc}}</h4></b>
+              <p class="text-main">{{bao.ndTinTuc}}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
